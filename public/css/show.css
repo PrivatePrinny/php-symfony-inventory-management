@@ -1,0 +1,11 @@
+div {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+label {
+    display: block;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}

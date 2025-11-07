@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inventareintrag bearbeiten{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/inventory.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1>Inventareintrag bearbeiten</h1>
+
+    {{ include('inventory/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('inventory/_delete_form.html.twig') }}
+
+    <a href="{{ path('app_inventory_index') }}"><img height="40px" width="40px" src="{{ asset('img/back.png') }}" /></a>
+
+{% endblock %}

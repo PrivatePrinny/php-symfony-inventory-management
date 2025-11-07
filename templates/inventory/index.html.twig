@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inventar{% endblock %}
+
+{% block body %}
+    <h1>Inventar</h1>
+    <a href="{{ path('app_inventory_new') }}"><img height="40px" width="40px" src="{{ asset('img/add.png') }}" /></a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Menge</th>
+                <th>Lagerort</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for inventory in inventories %}
+            <tr>
+                <td>{{ inventory.Name }}</td>
+                <td>{{ inventory.amount }}</td>
+                <td>{{ inventory.storageplace }}</td>
+                <td>
+                    <a href="{{ path('app_inventory_show', {'id': inventory.id}) }}"><img height="40px" width="40px" src="{{ asset('img/show.png')}}" /></a>
+                    <a href="{{ path('app_inventory_edit', {'id': inventory.id}) }}"><img height="40px" width="40px" src="{{ asset('img/edit.png')}}" /></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
